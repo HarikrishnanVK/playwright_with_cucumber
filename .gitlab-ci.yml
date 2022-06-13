@@ -1,5 +1,5 @@
 demo_job_1:
      tags:
-       - myTestRunner
+       - ci
      script:
        - echo Hello World
