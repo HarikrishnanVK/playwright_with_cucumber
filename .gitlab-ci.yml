@@ -11,5 +11,5 @@ demo_job_1:
     when: always
     paths:
       - ./Reports/cucumber_report.json
-    reports:
-      junit: ./Reports/*.html
+      - ./Reports/cucumber_report_*.html
+    
