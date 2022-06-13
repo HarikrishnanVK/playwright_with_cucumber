@@ -1,5 +1,8 @@
+stages:
+  - test
 demo_job_1:
-     tags:
-       - ci
-     script:
-       - echo Hello World
+  stage: test
+  tags:
+    - myRunner
+  script:
+    - echo Hello World
