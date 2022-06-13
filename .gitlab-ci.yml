@@ -5,4 +5,4 @@ demo_job_1:
   tags:
     - myRunner
   script:
-    - npx cucumber-js -p test_runner --tags  @demo & node ./htmlReportGenerator.js
+    - npx cucumber-js -p test_runner --tags  @demo "&" node ./htmlReportGenerator.js
