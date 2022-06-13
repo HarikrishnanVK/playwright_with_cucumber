@@ -5,4 +5,5 @@ demo_job_1:
   tags:
     - myRunner
   script:
+    - npm install
     - npx cucumber-js -p test_runner --tags  @demo "&" node ./htmlReportGenerator.js
