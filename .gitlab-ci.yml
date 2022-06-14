@@ -12,4 +12,4 @@ demo_job_1:
     paths:
       - ./Reports/cucumber_report.json
       - ./Reports/cucumber_report_*.html
-    
+  allow_failure: false
