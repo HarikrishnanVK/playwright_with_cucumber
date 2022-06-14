@@ -18,4 +18,10 @@ Feature: Playwright demo tests
             | category | product           | 
             | Phones   | Samsung galax s6  | 
             | Laptops  | Sony vaio i5      | 
-            | Monitors | Apple monitor 24  | 
+            | Monitors | Apple monitor 24  |
+        
+    @demo
+    Scenario: Verfiy product home page
+        Given I am on 'PRODUCT STORE' page
+        When  I click categories link
+        Then  I see 'Phones', 'Laptops' and 'Monitor' under categories
