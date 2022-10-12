@@ -2,7 +2,7 @@ Feature: Playwright demo tests
 
     Feature Description : To run demo tests with playwright library
 
-    @demo
+    @demo1
     Scenario: Verfiy product home page
         Given I am on 'PRODUCT STORE' page
         When  I click categories link
@@ -16,12 +16,7 @@ Feature: Playwright demo tests
 
         Examples:
             | category | product           | 
-            | Phones   | Samsung galax s6  | 
+            | Phones   | Samsung galaxy s6 | 
             | Laptops  | Sony vaio i5      | 
             | Monitors | Apple monitor 24  |
         
-    @demo
-    Scenario: Verfiy product home page
-        Given I am on 'PRODUCT STORE' page
-        When  I click categories link
-        Then  I see 'Phones', 'Laptops' and 'Monitor' under categories

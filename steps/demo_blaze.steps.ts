@@ -1,35 +1,26 @@
 import { Given, When, Then } from '@cucumber/cucumber'
-import { page } from '../steps/world'
 import { expect } from '@playwright/test'
+import { DemoBlazePage } from '../pages/demo_blaze.page';
+
+const demoBlazePage = new DemoBlazePage();
 
 Given('I am on {string} page', async (expectedText) => {
-    const actualText = await page.locator(`a[id='nava']`).textContent();
-    expect(expectedText).toEqual(actualText!.trim());
+    await demoBlazePage.verifyPage(expectedText);
 });
 
 When('I click categories link', async () => {
-    await page.locator(`//div[@class='list-group']//a[1]`).click();
+    await demoBlazePage.clickCategoriesLink();
 });
 
 Then('I see {string}, {string} and {string} under categories', async (string, string2, string3) => {
-    const actualSubLinks = await page.locator(`//div[@class='list-group']//a[not(@id='cat')]`).allTextContents();
-    const expectedSubLinks = [string, string2, string3];
-    expect(actualSubLinks).toEqual(expectedSubLinks);;
+    await demoBlazePage.verifyCategoriesList(string, string2, string3);
 });
 
 When('I choose {string}', async (expectedCategory) => {
-    const subLinks = page.locator(`//div[@class='list-group']//a`);
-    const subLinksCount = await page.locator(`//div[@class='list-group']//a`).count();
-    for (var i = 0; i < subLinksCount; i++) {
-        if ((await subLinks.nth(i).textContent()).match(expectedCategory)) {
-            await subLinks.nth(i).click();
-            break;
-        }
-    }
+    await demoBlazePage.selectCategoryFromList(expectedCategory);
 });
 
 Then('I see {string} in display', async (actualProdduct) => {
-    const product = page.locator(`//h4[@class='card-title']//a[text()='${actualProdduct}']`);
-    await expect(product).toBeEnabled();
-    expect(product).toBeTruthy();
+    var isProductDisplayed = await demoBlazePage.isRightProductSelected(actualProdduct);
+    expect(isProductDisplayed).toBeTruthy();
 });
