@@ -34,11 +34,9 @@ export class DemoBlazePage {
         }
     }
 
-    async isRightProductSelected(actualProdduct:string): Promise<boolean> {
+    async isValidProductSelected(actualProdduct:string): Promise<boolean> {
         const product = page.locator(`//h4[@class='card-title']//a[text()='${actualProdduct}']`);
         await expect(product).toBeEnabled();
         return await product.isEnabled();
     }
-
-
 }
