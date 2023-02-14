@@ -3,13 +3,13 @@
   "version": "1.0.0",
   "description": "Test automation",
   "main": "index.js",
-  "testData":{
+  "Environment":{
     "demoBlazeURL": "https://www.demoblaze.com/",
     "bupaURL": "https://www.bupa.com/",
     "protosURL": "https://test-psrm.protossecurity.com/"
   },
   "scripts": {
-    "test": "npx cucumber-js -p test_runner --tags  @demo1 & node ./htmlReportGenerator.js"
+    "test": "npx cucumber-js -p test_runner --tags  @demo & node ./htmlReportGenerator.js"
   },
   "author": "Tester",
   "license": "ISC",

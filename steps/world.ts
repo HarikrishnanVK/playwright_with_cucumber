@@ -1,6 +1,6 @@
 import { After, Before, setDefaultTimeout, Status } from '@cucumber/cucumber';
 import { Browser, BrowserContext, chromium, Page } from 'playwright';
-import { testData } from "../package.json";
+import { Environment } from "../package.json";
 
 let page: Page;
 let browser: Browser;
@@ -17,7 +17,7 @@ Before(async () => {
             });
         context = await browser.newContext({ viewport: null });
         page = await context.newPage();
-        await page.goto(testData.demoBlazeURL);
+        await page.goto(Environment.demoBlazeURL);
         console.log(`captured site title as ${await page.title()}`);
     }
     catch (error) {

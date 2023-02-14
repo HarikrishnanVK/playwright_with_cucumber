@@ -1,6 +1,7 @@
 import { page, context } from "../steps/world"
 import { expect, Locator, Page } from "@playwright/test";
 
+
 export class BupaPage {
 
     private globalVariable: string;
@@ -8,7 +9,7 @@ export class BupaPage {
     /*locators*/
 
     private bupaCompanyLogo = `figure[id='logo'] img[src*='bupa-company-logo']`;
-    private subLinksOfOurBupa = `ul[id*='level2'] > li span`;
+    private subLinksOfOurBupa = `ul[id='section-our-bupa-level2'] li[id*='level2'] > a > span`;
     private searchButton = `(//div[@class='search-inner'])[1]`;
     private searchTextBox = `input[id=searchTextbox]`;
     private searchTextBox2 = `input[id='searchButton']`;
@@ -18,6 +19,7 @@ export class BupaPage {
     private socialMediaLnks = `footer[id='footerwrapper'] div[class='share-icons'] a`;
     private serviceLinks = `section[class='footer-box-bottom'] a`;
     private acceptCookieButton = `button[id='cc-cookieAgree']`
+    
 
     /*functions or methods*/
 
@@ -43,7 +45,7 @@ export class BupaPage {
     }
 
     async verifySubLinksOfOurBupa() {
-        const expectedLinks: string[] = ["Our strategy", "Culture and values", "Inclusion and diversity", "Leadership", "Our story", "Governance"];
+        const expectedLinks: string[] = ["Our strategy", "Responsible business", "Leadership", "Our story", "Governance"];
         const actualLinks: string[] = [];
         const links = (await this.findElement(this.subLinksOfOurBupa));
         const linksCount = await (await this.findElement(this.subLinksOfOurBupa)).count();
@@ -87,10 +89,10 @@ export class BupaPage {
     }
 
     async navigateToFirstLink() {
-        const firstLinkResult = await (await this.findElement(this.resultLinks)).nth(0).textContent();
+        const firstLinkResult = await (await this.findElement(this.resultLinks)).nth(1).textContent();
         this.globalVariable = firstLinkResult;
         console.log(`result from the 1st link is captured as ${firstLinkResult}`)
-        await (await this.findElement(this.resultLinks)).nth(0).click();
+        await (await this.findElement(this.resultLinks)).nth(1).click();
     }
 
     private async switchToWindow(): Promise<Page> {

@@ -43,4 +43,4 @@ Then(`I see an article about {string} is displayed`, async (articleName: string)
 
 When('I click on {string} link', async (siteName: string) => {
     await bupa.clickSocialMediaLinks(siteName);
-})
+});

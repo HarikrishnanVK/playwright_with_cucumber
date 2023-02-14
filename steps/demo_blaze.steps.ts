@@ -21,6 +21,6 @@ When('I choose {string}', async (expectedCategory) => {
 });
 
 Then('I see {string} in display', async (actualProdduct) => {
-    var isProductDisplayed = await demoBlazePage.isRightProductSelected(actualProdduct);
+    var isProductDisplayed = await demoBlazePage.isValidProductSelected(actualProdduct);
     expect(isProductDisplayed).toBeTruthy();
 });

@@ -15,7 +15,7 @@ Feature: Tests related to Bupa health insurance site
         When  I click first url from the results
         Then  I see an article about 'James lenton' is displayed
 
-    @bupaTest @bupaSocialMedia
+    @bupaSocialMedia
     Scenario Outline: Verify Bupa's service link searches
 
         Given I am on Bupa homepage
