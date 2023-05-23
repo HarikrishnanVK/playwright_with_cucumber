@@ -1,4 +1,4 @@
-This is a repository to given an idea on how to use playwright library with cucumber.js.
+This is a repository to give an idea on how to use playwright library with cucumber.js.
 
 Used typescript as a primary language to script the tests.
 
